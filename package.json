@@ -11,6 +11,7 @@
         "api:build": "cd udagram/udagram-api && npm run build",
         "api:start": "cd udagram/udagram-api && npm run start",
         "api:deploy": "cd udagram/udagram-api && npm run deploy",
+        "api:setenv" : "cd udagram/udagram-api && npm run setenv",
         "deploy": "npm run api:deploy && npm run frontend:deploy"
     }
 }
