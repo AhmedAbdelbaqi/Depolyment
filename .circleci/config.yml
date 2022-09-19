@@ -49,6 +49,11 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
+      - run:
+          name: API Test
+          command: |
+            echo "Testing end points"
+            npm run api:test
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -64,8 +69,6 @@ jobs:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
           command: |
-            echo "Set Variables"
-            npm run api:setenv
             echo "Angular Global installation "
             npm install -g @angular/cli
             echo "# TODO: Install, build, deploy in both apps"
@@ -74,6 +77,9 @@ jobs:
 
 workflows:
   udagram:
+    when:
+      or: 
+         - equal: [ main, master ]
     jobs:
       - build
       - hold:
