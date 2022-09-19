@@ -77,11 +77,12 @@ jobs:
 
 workflows:
   udagram:
-    when:
-      or: 
-         - equal: [ main, master ]
     jobs:
-      - build
+      - build:
+        filters:
+            branches:
+              only:
+                - main
       - hold:
           filters:
             branches:
