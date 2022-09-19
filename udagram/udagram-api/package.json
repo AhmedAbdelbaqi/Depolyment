@@ -14,7 +14,7 @@
     "clean": "rm -rf www/ || true",
     "deploy": "npm run setenv && npm run build && eb list && eb deploy",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && cd ..",
-    "test": "jest ./test && echo \"Error: no test specified\" && exit 1",
+    "test": "jest ./test",
     "setenv": "chmod +x ./bin/set_env.sh && sh ./bin/set_env.sh",
     "zip": "zip -r Archive.zip . "
   },
